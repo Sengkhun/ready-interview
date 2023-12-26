@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Ready-Interview-s-workspace-6v4na7.ap-southeast-2.xata.sh/db/ready-interview",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
