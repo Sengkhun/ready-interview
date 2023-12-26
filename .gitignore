@@ -13,6 +13,9 @@
 /.next/
 /out/
 
+# xata
+/.xata/
+
 # production
 /build
 
