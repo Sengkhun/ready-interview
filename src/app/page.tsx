@@ -1,16 +1,24 @@
 import { getXataClient } from "@/xata";
 import { UserButton } from "@clerk/nextjs";
+import { Poppins } from "next/font/google";
 
-export default async function Home() {
+import Navbar from "@/components/Navbar";
+
+const poppins = Poppins({
+  weight: ["100", "200", "300"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+});
+
+const Home = async () => {
   const xataClient = getXataClient();
   const blogs = await xataClient.db.blogs.getMany();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <UserButton afterSignOutUrl="/" />
-      <div>Hello</div>
-      {blogs.map((blog) => (
-        <p key={blog.id}>{blog.name}</p>
-      ))}
+    <main className={`${poppins.variable} font-sans bg-white`}>
+      {/* <UserButton afterSignOutUrl="/" /> */}
+      <Navbar />
     </main>
   );
-}
+};
+
+export default Home;
