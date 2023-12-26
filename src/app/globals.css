@@ -25,3 +25,23 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/**
+ * Button 
+ */
+
+.btn {
+  @apply block text-nowrap px-5 py-3 lg:px-8 lg:py-4;
+}
+
+.btn-primary {
+  @apply rounded-lg shadow-md transition-all ease-in-out duration-300;
+  color: theme("colors.white");
+  background-color: theme("colors.primary");
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: theme("colors.primary-dark");
+}
