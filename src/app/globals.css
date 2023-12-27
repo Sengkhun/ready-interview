@@ -45,3 +45,12 @@ body {
 .btn-primary:active {
   background-color: theme("colors.primary-dark");
 }
+
+/**
+ * Image
+ */
+
+img {
+  max-width: unset;
+  height: unset;
+}
