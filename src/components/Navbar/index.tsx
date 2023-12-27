@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { UserButton, useUser } from "@clerk/nextjs";
 
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +12,7 @@ import {
   faHouse,
   faBuilding,
   faCircleInfo,
-  faBlog,
+  faFileLines,
 } from "@fortawesome/free-solid-svg-icons";
 
 import constant from "@/constant";
@@ -20,13 +21,14 @@ import Button from "@/components/Buttons/Button";
 const MENU = [
   { title: "Company", icon: faBuilding, path: "/company" },
   { title: "About Us", icon: faCircleInfo, path: "/about-us" },
-  { title: "Blog", icon: faBlog, path: "/blog" },
+  { title: "Blog", icon: faFileLines, path: "/blog" },
 ];
 
 const DRAWER_MENU = [{ title: "Home", icon: faHouse, path: "/" }, ...MENU];
 
 export default function Navbar() {
   // Hooks
+  const pathname = usePathname();
   const { user, isLoaded } = useUser();
 
   // States
@@ -38,7 +40,7 @@ export default function Navbar() {
   return (
     <>
       <div className="sticky top-0 shadow-md bg-white">
-        <div className="container mx-auto flex flex-row justify-between items-center py-3 lg:py-5">
+        <div className="container mx-auto flex flex-row justify-between py-3 lg:py-0">
           {/* Logo */}
           <Link
             href="/"
@@ -56,7 +58,7 @@ export default function Navbar() {
 
             {/* Full Logo */}
             <Image
-              className="hidden lg:flex"
+              className="hidden lg:flex py-5"
               src="/images/logos/logo-full.svg"
               width={120}
               height={100}
@@ -71,7 +73,9 @@ export default function Navbar() {
                 <Link
                   href={item.path}
                   title={`${constant.name} - ${item.title}`}
-                  className="block px-12 py-4"
+                  className={`${
+                    pathname === item.path ? "text-primary " : ""
+                  }flex flex-row justify-center items-center h-full px-12 py-4 hover:bg-primary hover:text-white transition-all`}
                 >
                   {item.title}
                 </Link>
@@ -88,7 +92,7 @@ export default function Navbar() {
                 <Button
                   href="/sign-in"
                   title={`${constant.name} - Sign In`}
-                  className="btn btn-primary"
+                  className="btn btn-primary mr-2"
                 >
                   Sign In
                 </Button>
@@ -96,14 +100,8 @@ export default function Navbar() {
             ) : null}
 
             {/* Menu */}
-            <button
-              className="lg:hidden flex flex-row justify-end items-center w-12"
-              onClick={openDrawer}
-            >
-              <FontAwesomeIcon
-                className={`fa-xl transition-all${drawerOpen ? " w-0" : ""}`}
-                icon={faBars}
-              />
+            <button className="lg:hidden pl-4" onClick={openDrawer}>
+              <FontAwesomeIcon className="fa-xl transition-all" icon={faBars} />
             </button>
           </div>
         </div>
@@ -133,14 +131,14 @@ export default function Navbar() {
 
           <ul className="flex flex-col">
             {DRAWER_MENU.map((item, idx) => (
-              <li
-                key={idx}
-                className="hover:bg-primary hover:text-white transition-all"
-              >
+              <li key={idx}>
                 <Link
                   href={item.path}
                   title={`${constant.name} - ${item.title}`}
-                  className="block hover:color-red w-full pr-8 py-4"
+                  className={`${
+                    pathname === item.path ? "text-primary " : ""
+                  }flex flex-row hover:color-red w-full pr-8 py-4 hover:bg-primary hover:text-white transition-all`}
+                  onClick={closeDrawer}
                 >
                   <FontAwesomeIcon
                     className="fa-xl flex flex-row justify-start items-center w-20"
@@ -156,7 +154,7 @@ export default function Navbar() {
         {/* Background Overlay */}
         <div
           className={`fixed top-0 left-0 right-0 h-full w-full transition-all duration-500${
-            drawerOpen ? " bg-black opacity-90" : " -z-10 opacity-0"
+            drawerOpen ? " bg-black opacity-80" : " -z-10 opacity-0"
           }`}
           onClick={closeDrawer}
         ></div>

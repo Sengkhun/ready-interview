@@ -17,7 +17,7 @@ const config: Config = {
         secondary: "#8ECAE6",
         "secondary-dark": "#209EBC",
         tertiary: "#FFB702",
-        black: "#225067",
+        default: "#225067",
       },
       borderRadius: {
         lg: "1rem",
