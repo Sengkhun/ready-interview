@@ -13,7 +13,9 @@ export default function Button(props: buttonProps) {
   // Variables
   const { type } = props;
   const className = `btn ${
-    type ? `bg-${type} text-white hover:bg-${type}-dark` : ""
+    type
+      ? `bg-${type} text-white hover:bg-${type}-dark focus:bg-${type}-dark active:bg-${type}-dark`
+      : ""
   } ${props.className}`;
 
   return (

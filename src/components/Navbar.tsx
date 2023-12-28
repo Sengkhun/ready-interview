@@ -7,24 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faHouse,
-  faBuilding,
-  faCircleInfo,
-  faBook,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-import constant from "@/constant";
+import constant, { MENU, DRAWER_MENU } from "@/constant";
 import Button from "@/components/Button";
-
-const MENU = [
-  { title: "Company", icon: faBuilding, path: "/company" },
-  { title: "About Us", icon: faCircleInfo, path: "/about-us" },
-  { title: "Blog", icon: faBook, path: "/blog" },
-];
-
-const DRAWER_MENU = [{ title: "Home", icon: faHouse, path: "/" }, ...MENU];
 
 export default function Navbar() {
   // Hooks
@@ -40,7 +26,7 @@ export default function Navbar() {
   return (
     <>
       <div className="sticky top-0 shadow-md bg-white">
-        <div className="ri-container mx-auto flex flex-row justify-between py-3 lg:py-0">
+        <nav className="ri-container flex flex-row justify-between py-3 lg:py-0">
           {/* Logo */}
           <Link
             href="/"
@@ -107,12 +93,12 @@ export default function Navbar() {
               <FontAwesomeIcon className="fa-xl transition-all" icon={faBars} />
             </button>
           </div>
-        </div>
+        </nav>
       </div>
 
       {/* Drawer Menu */}
       <div className="flex lg:hidden">
-        <div
+        <nav
           className={`${
             drawerOpen ? "translate-x-0 " : ""
           }fixed top-0 left-0 z-20 w-64 h-full transition-all duration-500 transform -translate-x-full bg-white shadow-lg`}
@@ -154,7 +140,7 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
 
         {/* Background Overlay */}
         <div

@@ -17,6 +17,9 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -26,19 +29,23 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+main {
+  flex: 1;
+}
+
 /**
  * Container
  */
 
 .ri-container {
-  @apply container px-4;
+  @apply container mx-auto px-4;
 }
 
 /**
  * Colors
  */
 
-.bg-primary {
+/* .bg-primary {
   background-color: theme("colors.primary");
 }
 .bg-primary-dark {
@@ -62,7 +69,7 @@ body {
 }
 .text-secondary-dark {
   color: theme("colors.secondary-dark");
-}
+} */
 
 /**
  * Button 
