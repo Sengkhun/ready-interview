@@ -144,8 +144,8 @@ export default function Navbar() {
 
         {/* Background Overlay */}
         <div
-          className={`fixed top-0 left-0 right-0 h-full w-full transition-all duration-500${
-            drawerOpen ? " bg-black opacity-80" : " -z-10 opacity-0"
+          className={`fixed top-0 left-0 right-0 h-full w-full bg-black opacity-80 z-10${
+            drawerOpen ? "" : " hidden"
           }`}
           onClick={closeDrawer}
         ></div>

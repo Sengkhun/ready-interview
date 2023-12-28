@@ -2,7 +2,7 @@ interface radiusInvertedProps {
   className?: string;
 }
 
-export default function RadiusInverted(props: radiusInvertedProps) {
+export default function RadiusInvertedIcon(props: radiusInvertedProps) {
   return (
     <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
       <path

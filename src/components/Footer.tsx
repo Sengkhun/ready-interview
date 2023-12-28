@@ -5,12 +5,15 @@ import moment from "moment";
 
 import constant, { MENU } from "@/constant";
 
-import config from "@/../tailwind.config";
-import RadiusInverted from "@/icons/RadiusInverted";
+import RadiusInvertedIcon from "@/icons/RadiusInvertedIcon";
+
+const radiusSize = "2rem";
 
 export default function Footer() {
   return (
-    <footer className="sticky bottom-0 rounded-tl-[2rem] bg-secondary-light py-14 lg:py-20">
+    <footer
+      className={`sticky bottom-0 rounded-tl-[${radiusSize}] bg-secondary-light py-14 lg:py-20`}
+    >
       <div className="ri-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:mb-4">
           <div className="flex flex-row justify-center lg:justify-start mb-8 lg:mb-0">
@@ -57,8 +60,10 @@ export default function Footer() {
       </div>
 
       {/* Top inverted radius */}
-      <div className="absolute top-[-2rem] right-0 w-[2rem] h-[2rem]">
-        <RadiusInverted className="fill-secondary-light" />
+      <div
+        className={`absolute top-[-${radiusSize}] right-0 w-[${radiusSize}] h-[${radiusSize}]`}
+      >
+        <RadiusInvertedIcon className="fill-secondary-light" />
       </div>
     </footer>
   );
