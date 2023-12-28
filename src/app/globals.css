@@ -35,6 +35,36 @@ body {
 }
 
 /**
+ * Colors
+ */
+
+.bg-primary {
+  background-color: theme("colors.primary");
+}
+.bg-primary-dark {
+  background-color: theme("colors.primary-dark");
+}
+.bg-secondary {
+  background-color: theme("colors.secondary");
+}
+.bg-secondary-dark {
+  background-color: theme("colors.secondary-dark");
+}
+
+.text-primary {
+  color: theme("colors.primary");
+}
+.text-primary-dark {
+  color: theme("colors.primary-dark");
+}
+.text-secondary {
+  color: theme("colors.secondary");
+}
+.text-secondary-dark {
+  color: theme("colors.secondary-dark");
+}
+
+/**
  * Button 
  */
 

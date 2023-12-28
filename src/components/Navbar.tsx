@@ -16,7 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import constant from "@/constant";
-import Button from "@/components/Buttons/Button";
+import Button from "@/components/Button";
 
 const MENU = [
   { title: "Company", icon: faBuilding, path: "/company" },
@@ -49,20 +49,22 @@ export default function Navbar() {
           >
             {/* Small Logo */}
             <Image
-              className="lg:hidden"
+              className="lg:hidden h-auto"
               src="/images/logos/logo.svg"
               width={50}
               height={50}
               alt={`${constant.name} Logo`}
+              priority={true}
             />
 
             {/* Full Logo */}
             <Image
-              className="hidden lg:flex py-5"
+              className="hidden lg:flex py-5 h-auto"
               src="/images/logos/logo-full.svg"
               width={120}
               height={100}
               alt={`${constant.name} Logo`}
+              priority={true}
             />
           </Link>
 
@@ -92,7 +94,7 @@ export default function Navbar() {
                 <Button
                   href="/sign-in"
                   title={`${constant.name} - Sign In`}
-                  type="secondary"
+                  type="primary"
                   className="mr-2"
                 >
                   Sign In
@@ -123,10 +125,12 @@ export default function Navbar() {
             className="block border-b px-6 py-8"
           >
             <Image
+              className="w-32"
               src="/images/logos/logo-full.svg"
               width={120}
               height={100}
               alt={`${constant.name} Logo`}
+              priority={false}
             />
           </Link>
 
