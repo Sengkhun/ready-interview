@@ -42,41 +42,45 @@ main {
 }
 
 /**
- * Colors
+ * Typography
  */
 
-/* .bg-primary {
-  background-color: theme("colors.primary");
-}
-.bg-primary-dark {
-  background-color: theme("colors.primary-dark");
-}
-.bg-secondary {
-  background-color: theme("colors.secondary");
-}
-.bg-secondary-dark {
-  background-color: theme("colors.secondary-dark");
+h1,
+.h1 {
+  @apply text-4xl lg:text-5xl font-bold;
 }
 
-.text-primary {
-  color: theme("colors.primary");
+h2,
+.h2 {
+  @apply text-3xl lg:text-4xl;
 }
-.text-primary-dark {
-  color: theme("colors.primary-dark");
+
+h3,
+.h3 {
+  @apply text-2xl lg:text-3xl;
 }
-.text-secondary {
-  color: theme("colors.secondary");
+
+h4,
+.h4 {
+  @apply text-xl lg:text-2xl;
 }
-.text-secondary-dark {
-  color: theme("colors.secondary-dark");
-} */
+
+h5,
+.h5 {
+  @apply text-lg lg:text-xl;
+}
+
+h6,
+.h6 {
+  @apply text-base lg:text-lg;
+}
 
 /**
  * Button 
  */
 
 .btn {
-  @apply block rounded-lg shadow-md transition-all ease-in-out duration-300 text-nowrap px-4 py-2 lg:px-8 lg:py-4;
+  @apply select-none rounded-lg shadow-md transition-all ease-in-out duration-300 text-center text-nowrap px-4 py-2 lg:px-8 lg:py-4;
 }
 
 /**

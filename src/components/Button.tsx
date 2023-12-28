@@ -14,7 +14,7 @@ export default function Button(props: buttonProps) {
   const { type } = props;
   const className = `btn ${
     type
-      ? `bg-${type} text-white hover:bg-${type}-dark focus:bg-${type}-dark active:bg-${type}-dark`
+      ? `bg-${type} block text-white hover:bg-${type}-dark focus:bg-${type}-dark active:bg-${type}-dark`
       : ""
   } ${props.className}`;
 
