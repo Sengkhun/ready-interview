@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className="text-default">
-        <body className={`${poppins.variable} font-sans`}>{children}</body>
+        <body className={`${poppins.variable} poppins`}>{children}</body>
       </html>
     </ClerkProvider>
   );

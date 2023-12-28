@@ -12,7 +12,7 @@ import {
   faHouse,
   faBuilding,
   faCircleInfo,
-  faFileLines,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 
 import constant from "@/constant";
@@ -21,7 +21,7 @@ import Button from "@/components/Buttons/Button";
 const MENU = [
   { title: "Company", icon: faBuilding, path: "/company" },
   { title: "About Us", icon: faCircleInfo, path: "/about-us" },
-  { title: "Blog", icon: faFileLines, path: "/blog" },
+  { title: "Blog", icon: faBook, path: "/blog" },
 ];
 
 const DRAWER_MENU = [{ title: "Home", icon: faHouse, path: "/" }, ...MENU];
@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <>
       <div className="sticky top-0 shadow-md bg-white">
-        <div className="container mx-auto flex flex-row justify-between py-3 lg:py-0">
+        <div className="ri-container mx-auto flex flex-row justify-between py-3 lg:py-0">
           {/* Logo */}
           <Link
             href="/"
@@ -92,7 +92,8 @@ export default function Navbar() {
                 <Button
                   href="/sign-in"
                   title={`${constant.name} - Sign In`}
-                  className="btn btn-primary mr-2"
+                  type="secondary"
+                  className="mr-2"
                 >
                   Sign In
                 </Button>
@@ -129,7 +130,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <ul className="flex flex-col">
+          <ul className="flex flex-col p-4">
             {DRAWER_MENU.map((item, idx) => (
               <li key={idx}>
                 <Link
@@ -137,11 +138,11 @@ export default function Navbar() {
                   title={`${constant.name} - ${item.title}`}
                   className={`${
                     pathname === item.path ? "text-primary " : ""
-                  }flex flex-row hover:color-red w-full pr-8 py-4 hover:bg-primary hover:text-white transition-all`}
+                  }flex flex-row w-full pr-8 py-4 rounded-lg hover:bg-neutral-100 hover:text-primary transition-all`}
                   onClick={closeDrawer}
                 >
                   <FontAwesomeIcon
-                    className="fa-xl flex flex-row justify-start items-center w-20"
+                    className="fa-lg flex flex-row justify-start items-center w-16"
                     icon={item.icon}
                   />
                   {item.title}

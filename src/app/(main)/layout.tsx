@@ -6,7 +6,7 @@ interface mainLayoutProps {
 
 export default function MainLayout(props: mainLayoutProps) {
   return (
-    <main className="*:px-3 lg:*:px-0">
+    <main>
       <Navbar />
       {props.children}
     </main>
