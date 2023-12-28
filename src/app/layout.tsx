@@ -7,8 +7,6 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
-import Navbar from "@/components/Navbar";
-
 import "./globals.css";
 
 const poppins = Poppins({
@@ -30,12 +28,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className="text-default">
-        <body>
-          <main className={`${poppins.variable} font-sans *:px-3 lg:*:px-0`}>
-            <Navbar />
-            {children}
-          </main>
-        </body>
+        <body className={`${poppins.variable} font-sans`}>{children}</body>
       </html>
     </ClerkProvider>
   );
