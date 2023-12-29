@@ -1,3 +1,5 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Poppins } from "next/font/google";
@@ -6,8 +8,6 @@ import { Poppins } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
-
-import "./globals.css";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "700"],

@@ -12,7 +12,8 @@ const radiusSize = "2rem";
 export default function Footer() {
   return (
     <footer
-      className={`sticky bottom-0 rounded-tl-[${radiusSize}] bg-secondary-light py-14 lg:py-20`}
+      className={`sticky bottom-0 bg-secondary-light py-14 lg:py-20`}
+      style={{ borderTopLeftRadius: radiusSize }}
     >
       <div className="ri-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:mb-4">
@@ -61,7 +62,13 @@ export default function Footer() {
 
       {/* Top inverted radius */}
       <div
-        className={`absolute top-[-${radiusSize}] right-0 w-[${radiusSize}] h-[${radiusSize}]`}
+        style={{
+          position: "absolute",
+          top: `-${radiusSize}`,
+          right: 0,
+          width: radiusSize,
+          height: radiusSize,
+        }}
       >
         <RadiusInvertedIcon className="fill-secondary-light" />
       </div>

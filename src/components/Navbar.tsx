@@ -81,7 +81,6 @@ export default function Navbar() {
                   href="/sign-in"
                   title={`${constant.name} - Sign In`}
                   type="primary"
-                  className="mr-2"
                 >
                   Sign In
                 </Button>
@@ -89,7 +88,7 @@ export default function Navbar() {
             ) : null}
 
             {/* Menu */}
-            <button className="lg:hidden pl-4" onClick={openDrawer}>
+            <button className="lg:hidden ml-2 pl-4" onClick={openDrawer}>
               <FontAwesomeIcon className="fa-xl transition-all" icon={faBars} />
             </button>
           </div>
