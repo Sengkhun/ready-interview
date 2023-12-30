@@ -5,14 +5,14 @@ import moment from "moment";
 
 import constant, { MENU } from "@/constant";
 
-import RadiusInvertedIcon from "@/icons/RadiusInvertedIcon";
+import RadiusInverted from "@/components/RadiusInverted";
 
 const radiusSize = "2rem";
 
 export default function Footer() {
   return (
     <footer
-      className={`sticky bottom-0 bg-secondary-light py-14 lg:py-20`}
+      className={`relative bg-secondary-light mt-auto py-14 lg:py-20`}
       style={{ borderTopLeftRadius: radiusSize }}
     >
       <div className="ri-container">
@@ -61,17 +61,7 @@ export default function Footer() {
       </div>
 
       {/* Top inverted radius */}
-      <div
-        style={{
-          position: "absolute",
-          top: `-${radiusSize}`,
-          right: 0,
-          width: radiusSize,
-          height: radiusSize,
-        }}
-      >
-        <RadiusInvertedIcon className="fill-secondary-light" />
-      </div>
+      <RadiusInverted color="secondary-light" size={radiusSize} />
     </footer>
   );
 }

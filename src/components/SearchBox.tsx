@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 export default function SearchBox() {
   return (
     <>
-      <div className="overflow-hidden flex flex-row text-lg lg:text-2xl justify-between items-center rounded-xl border-solid border-[3px] transition-all border-primary px-4 lg:px-8">
+      <div className="overflow-hidden flex flex-row text-lg lg:text-2xl justify-between items-center rounded-xl border-solid border-[3px] transition-all border-primary px-4 lg:px-8 mb-8">
         <div className="flex flex-row flex-1 items-center">
           <FontAwesomeIcon
             className="fa-xl text-primary mr-2"
