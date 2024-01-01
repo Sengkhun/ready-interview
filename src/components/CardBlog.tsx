@@ -10,10 +10,14 @@ export default function CardBlog() {
   const radiusSize = "2rem";
   return (
     <div
-      className="relative overflow-hidden shadow-lg group/container"
+      className="relative flex overflow-hidden shadow-lg group/container"
       style={{ borderRadius: radiusSize }}
     >
-      <Link href="#" title="Read More About Job interview tips">
+      <Link
+        href={`/blog/job-interview-tips`}
+        title="Read More About Job interview tips"
+        className="flex flex-col flex-1"
+      >
         <div className="relative">
           {/* Image */}
           <div
@@ -38,7 +42,7 @@ export default function CardBlog() {
           </div>
         </div>
         <div
-          className="relative bg-primary text-white px-8 py-8"
+          className="relative flex-1 bg-primary text-white px-4 lg:px-8 py-6 lg:py-8"
           style={{
             borderTopLeftRadius: radiusSize,
             marginTop: `-${radiusSize}`,

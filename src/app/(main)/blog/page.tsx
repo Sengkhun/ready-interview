@@ -2,6 +2,7 @@ import constant from "@/constant";
 
 import CardBlog from "@/components/CardBlog";
 import SearchBox from "@/components/SearchBox";
+import Pagination from "@/components/Pagination";
 
 export default function Blog() {
   // Temp variables
@@ -26,6 +27,9 @@ export default function Blog() {
           <CardBlog key={index} />
         ))}
       </div>
+
+      {/* Pagination */}
+      <Pagination />
     </div>
   );
 }

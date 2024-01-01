@@ -52,7 +52,7 @@ h1,
 
 h2,
 .h2 {
-  @apply text-3xl lg:text-4xl;
+  @apply text-3xl lg:text-4xl font-bold;
 }
 
 h3,
@@ -73,6 +73,22 @@ h5,
 h6,
 .h6 {
   @apply text-base lg:text-lg;
+}
+
+/**
+ * Fill Colors
+ */
+
+.fill-primary {
+  fill: theme("colors.primary");
+}
+
+.fill-secondary {
+  fill: theme("colors.secondary");
+}
+
+.fill-secondary-light {
+  fill: theme("colors.secondary-light");
 }
 
 /**
