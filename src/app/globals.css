@@ -107,8 +107,8 @@ h6,
   background-color: theme("colors.primary-dark");
 }
 
-.btn-primary {
-  background-color: theme("colors.primary");
+.btn-secondary {
+  background-color: theme("colors.secondary");
 }
 
 .btn-secondary:hover {

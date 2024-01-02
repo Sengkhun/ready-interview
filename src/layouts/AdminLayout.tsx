@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import constant, { ADMIN_MENU, DASHBOARD_LINK } from "@/constant";
+import Button from "@/components/Button";
 
 interface adminLayoutProps {
   children: React.ReactNode;
@@ -42,8 +43,8 @@ export default function AdminLayout(props: adminLayoutProps) {
         <nav
           className={`${
             drawerOpen ? "translate-x-0 " : ""
-          }fixed lg:relative top-0 left-0 z-20 w-64 h-full transition-all lg:transition-none duration-500 transform -translate-x-full lg:translate-x-0 bg-white`}
-          style={{ padding: 0, borderRight: "1px solid #e5e7eb" }}
+          }fixed lg:relative top-0 left-0 z-20 w-64 h-full border-r transition-all lg:transition-none duration-500 transform -translate-x-full lg:translate-x-0 bg-white`}
+          style={{ padding: 0 }}
         >
           {/* Logo */}
           <Link
@@ -100,14 +101,25 @@ export default function AdminLayout(props: adminLayoutProps) {
 
       <div className="flex flex-col flex-1">
         {/* Navbar */}
-        <div className="flex flex-row justify-between items-center px-8 py-4 border-b">
+        <div className="flex flex-row justify-between lg:justify-end items-center px-8 py-4 border-b">
           {/* Menu */}
           <button className="lg:hidden pr-4" onClick={openDrawer}>
             <FontAwesomeIcon className="fa-xl transition-all" icon={faBars} />
           </button>
 
-          {/* Manage account button */}
-          <UserButton afterSignOutUrl="/" />
+          <div className="flex flex-row items-center">
+            <Button
+              href="/"
+              title={`${constant.name} - Home`}
+              type="primary"
+              className="block mr-4"
+            >
+              Go to site
+            </Button>
+
+            {/* Manage account button */}
+            <UserButton afterSignOutUrl="/" />
+          </div>
         </div>
 
         {/* Content */}
