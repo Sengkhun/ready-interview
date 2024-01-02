@@ -26,8 +26,8 @@ export default function AdminLayout(props: adminLayoutProps) {
 
   // Variables
   const drawerClass = {
-    list: "flex flex-row w-full pr-8 py-4 rounded-lg hover:bg-neutral-100 hover:text-primary transition-all",
-    listIcon: "fa-lg flex flex-row justify-start items-center w-16",
+    list: "flex flex-row items-center w-full pr-8 py-2 rounded-lg hover:bg-neutral-100 hover:text-primary transition-all",
+    listIcon: "fa-lg flex flex-row justify-start items-center w-14",
   };
 
   const openDrawer = () => setDrawerOpen(true);
@@ -65,7 +65,7 @@ export default function AdminLayout(props: adminLayoutProps) {
           {/* Menu */}
           <ul className="flex flex-col p-4">
             <li className="mb-2">
-              <span className="text-xs text-neutral-400 font-bold uppercase">
+              <span className="text-xs text-neutral-400 font-bold uppercase ml-4">
                 Admin Dashboard
               </span>
             </li>

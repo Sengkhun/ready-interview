@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface inputProps {
   containerClass?: string;
-  iconClass?: string;
-  icon?: IconDefinition;
   inputClass?: string;
   type: string;
   placeholder?: string;
@@ -16,21 +14,14 @@ interface inputProps {
 
 export default function Input(props: inputProps) {
   return (
-    <div
-      className={`flex flex-row flex-1 items-center${
-        props.containerClass ? " " + props.containerClass : ""
+    <input
+      type={props.type}
+      placeholder={props.placeholder}
+      className={`w-full border rounded-md px-4 py-2 focus:outline-primary${
+        props.inputClass ? " " + props.inputClass : ""
       }`}
-    >
-      {props.icon ? (
-        <FontAwesomeIcon className={props.iconClass} icon={props.icon} />
-      ) : null}
-      <input
-        type={props.type}
-        placeholder={props.placeholder}
-        className={props.inputClass}
-        onFocus={() => console.log("FOUCS")}
-        onBlur={() => console.log("Blur")}
-      />
-    </div>
+      onFocus={() => console.log("FOUCS")}
+      onBlur={() => console.log("Blur")}
+    />
   );
 }
