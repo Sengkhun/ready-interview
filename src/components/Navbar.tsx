@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faGaugeHigh } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 import constant, { MENU, DRAWER_MENU, ROLES, DASHBOARD_LINK } from "@/constant";
 import Button from "@/components/Button";

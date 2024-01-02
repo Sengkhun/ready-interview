@@ -23,6 +23,11 @@ export const DASHBOARD_LINK = {
   path: "/dashboard",
 };
 
+export const ADMIN_MENU = [
+  DASHBOARD_LINK,
+  { title: "Blog", icon: faBook, path: `${DASHBOARD_LINK.path}/blog` },
+];
+
 export const ROLES = {
   admin: "admin",
   user: "user",

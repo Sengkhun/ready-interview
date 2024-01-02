@@ -4,12 +4,13 @@ import { auth, currentUser } from "@clerk/nextjs";
 import { useSession } from "@clerk/nextjs";
 
 import { checkUserRole } from "@/utils/helper";
+import AdminLayout from "@/layouts/AdminLayout";
 
-interface adminLayoutProps {
+interface layoutProps {
   children: React.ReactNode;
 }
 
-export default async function AdminLayout(props: adminLayoutProps) {
+export default async function Layout(props: layoutProps) {
   // Hooks
   const { userId } = auth();
 
@@ -30,5 +31,9 @@ export default async function AdminLayout(props: adminLayoutProps) {
   //   return <div>NEW</div>;
   // }
 
-  return <main>{props.children}</main>;
+  return (
+    <main className="flex flex-row">
+      <AdminLayout>{props.children}</AdminLayout>
+    </main>
+  );
 }
