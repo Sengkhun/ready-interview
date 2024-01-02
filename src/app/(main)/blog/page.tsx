@@ -1,8 +1,14 @@
+import { Metadata } from "next";
+
 import constant from "@/constant";
 
 import CardBlog from "@/components/CardBlog";
 import SearchBox from "@/components/SearchBox";
 import Pagination from "@/components/Pagination";
+
+export const metadata: Metadata = {
+  title: `Blog | ${constant.name}`,
+};
 
 export default function Blog() {
   // Temp variables

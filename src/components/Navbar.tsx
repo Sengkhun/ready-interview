@@ -7,9 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faGaugeHigh } from "@fortawesome/free-solid-svg-icons";
 
-import constant, { MENU, DRAWER_MENU } from "@/constant";
+import constant, { MENU, DRAWER_MENU, ROLES, DASHBOARD_LINK } from "@/constant";
 import Button from "@/components/Button";
 
 export default function Navbar() {
@@ -19,6 +19,12 @@ export default function Navbar() {
 
   // States
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // Variables
+  const drawerClass = {
+    list: "flex flex-row w-full pr-8 py-4 rounded-lg hover:bg-neutral-100 hover:text-primary transition-all",
+    listIcon: "fa-lg flex flex-row justify-start items-center w-16",
+  };
 
   const openDrawer = () => setDrawerOpen(true);
   const closeDrawer = () => setDrawerOpen(false);
@@ -75,7 +81,21 @@ export default function Navbar() {
           <div className="lg:min-w-20 flex flex-row justify-end items-center ml-4">
             {isLoaded ? (
               user ? (
-                <UserButton afterSignOutUrl="/" />
+                <>
+                  {user?.publicMetadata?.role === ROLES.admin ? (
+                    <Button
+                      href={DASHBOARD_LINK.path}
+                      target="_blank"
+                      title={`${constant.name} - ${DASHBOARD_LINK.title}`}
+                      type="primary"
+                      className="hidden lg:block mr-4"
+                    >
+                      {DASHBOARD_LINK.title}
+                    </Button>
+                  ) : null}
+
+                  <UserButton afterSignOutUrl="/" />
+                </>
               ) : (
                 <Button
                   href="/sign-in"
@@ -120,18 +140,38 @@ export default function Navbar() {
           </Link>
 
           <ul className="flex flex-col p-4">
+            {user?.publicMetadata?.role === ROLES.admin ? (
+              <li>
+                <Link
+                  href={DASHBOARD_LINK.path}
+                  target="_blank"
+                  title={`${constant.name} - ${DASHBOARD_LINK.title}`}
+                  className={`${
+                    pathname === DASHBOARD_LINK.path ? "text-primary " : ""
+                  }${drawerClass.list}`}
+                  onClick={closeDrawer}
+                >
+                  <FontAwesomeIcon
+                    className={drawerClass.listIcon}
+                    icon={DASHBOARD_LINK.icon}
+                  />
+                  Dashboard
+                </Link>
+              </li>
+            ) : null}
+
             {DRAWER_MENU.map((item, idx) => (
               <li key={idx}>
                 <Link
                   href={item.path}
                   title={`${constant.name} - ${item.title}`}
-                  className={`${
-                    pathname === item.path ? "text-primary " : ""
-                  }flex flex-row w-full pr-8 py-4 rounded-lg hover:bg-neutral-100 hover:text-primary transition-all`}
+                  className={`${pathname === item.path ? "text-primary " : ""}${
+                    drawerClass.list
+                  }`}
                   onClick={closeDrawer}
                 >
                   <FontAwesomeIcon
-                    className="fa-lg flex flex-row justify-start items-center w-16"
+                    className={drawerClass.listIcon}
                     icon={item.icon}
                   />
                   {item.title}

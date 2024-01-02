@@ -4,6 +4,7 @@ import Link from "next/link";
 interface buttonProps {
   title: string;
   href: string;
+  target?: string;
   className?: string;
   type?: "primary" | "secondary";
   children: React.ReactNode;
@@ -19,6 +20,7 @@ export default function Button(props: buttonProps) {
   return (
     <Link
       title={props.title}
+      target={props.target}
       href={props.href}
       className={removeExtraSpaces(className)}
     >
