@@ -99,7 +99,7 @@ export default function AdminLayout(props: adminLayoutProps) {
         ></div>
       </div>
 
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 h-screen">
         {/* Navbar */}
         <div className="flex flex-row justify-between lg:justify-end items-center px-8 py-4 border-b">
           {/* Menu */}
@@ -123,7 +123,7 @@ export default function AdminLayout(props: adminLayoutProps) {
         </div>
 
         {/* Content */}
-        <div className="flex-1 px-8 py-8">{props.children}</div>
+        <div className="flex-1 px-8 py-8 overflow-y-auto">{props.children}</div>
       </div>
     </>
   );

@@ -7,15 +7,18 @@ interface buttonProps {
   target?: string;
   className?: string;
   type?: "primary" | "secondary";
+  size?: "sm";
   children: React.ReactNode;
 }
 
 export default function Button(props: buttonProps) {
   // Variables
   const { type } = props;
-  const className = `btn ${
+  let className = `btn ${
     type ? `btn-${type} bg-${type} hover:bg-${type}-dark` : ""
-  } ${props.className}`;
+  }`;
+  className += props.size ? " btn-" + props.size : "";
+  className += props.className ? " " + props.className : "";
 
   return (
     <Link
