@@ -9,29 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.1",
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-brands-svg-icons": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@clerk/nextjs": "^4.30.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@tinymce/tinymce-react": "^4.3.2",
-    "@xata.io/client": "^0.28.3",
+    "@xata.io/client": "^0.28.4",
     "moment": "^2.30.1",
     "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@clerk/types": "^3.60.0",
     "@svgr/webpack": "^8.1.0",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.0.4",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5"
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
   }
 }
