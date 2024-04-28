@@ -4,8 +4,9 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Label from "@/components/Label";
+import { InputHTMLAttributes } from "react";
 
-interface inputProps {
+interface inputProps extends InputHTMLAttributes<HTMLInputElement> {
   containerClass?: string;
   label?: string;
   type: string;
@@ -25,6 +26,7 @@ export default function Input(props: inputProps) {
     name = "",
     id = "",
     placeholder = "",
+    ...inputProps
   } = props;
 
   return (
@@ -41,6 +43,7 @@ export default function Input(props: inputProps) {
           id={id}
           className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-primary focus:outline-primary sm:text-sm sm:leading-6"
           placeholder={placeholder}
+          {...inputProps}
         />
       </div>
     </div>

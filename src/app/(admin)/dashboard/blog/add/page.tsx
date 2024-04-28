@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import { Editor as TinyMCEEditor } from "tinymce";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -14,12 +15,23 @@ import Button from "@/components/Button";
 import FileUpload from "@/components/FileUpload";
 
 export default function AddBlogPage() {
-  const editorRef = useRef(null);
-  // const log = () => {
-  //   if (editorRef.current?.getContent) {
-  //     console.log(editorRef.current.getContent());
-  //   }
-  // };
+  // States
+  const [title, setTitle] = useState<string>("");
+  const [link, setLink] = useState<string>("");
+  const [image, setImage] = useState<File | null>(null);
+  const [date, setDate] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
+
+  const editorRef = useRef<TinyMCEEditor | null>(null);
+  const log = () => {
+    if (editorRef.current?.getContent) {
+      console.log(editorRef.current.getContent());
+    }
+  };
+
+  const onTextChange = (setState: any) => (e: any) => {
+    setState(e.target.value);
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 lg:mb-4 gap-4">
@@ -31,6 +43,8 @@ export default function AddBlogPage() {
           type="text"
           name="title"
           placeholder="Enter blog title here..."
+          onChange={onTextChange(setTitle)}
+          value={title}
         />
 
         {/* Link */}
@@ -39,10 +53,9 @@ export default function AddBlogPage() {
           type="text"
           name="link"
           placeholder="Enter blog link here..."
+          onChange={onTextChange(setLink)}
+          value={link}
         />
-
-        {/* Image upload */}
-        <FileUpload />
 
         {/* Content */}
         <div>
@@ -73,6 +86,15 @@ export default function AddBlogPage() {
 
       {/* Right panel */}
       <div>
+        {/* Image upload */}
+        <FileUpload
+          label="Featured Image"
+          onImageChange={(file: File | null) => {
+            setImage(file);
+          }}
+        />
+
+        {/* Blog Control */}
         <Label>Controls</Label>
         {/* Controls */}
         <div className="border rounded-md px-4 py-2">
@@ -89,6 +111,8 @@ export default function AddBlogPage() {
             name="date"
             placeholder="DD/MM/YYYY"
             containerClass="mb-4"
+            onChange={onTextChange(setDate)}
+            value={date}
           />
 
           <div className="flex flex-row justify-between items-center mb-4">
@@ -116,9 +140,9 @@ export default function AddBlogPage() {
           <Button
             size="sm"
             type="primary"
-            href="#"
             title="Publish"
             className="block"
+            onClick={log}
           >
             Publish
           </Button>

@@ -3,11 +3,12 @@ import Link from "next/link";
 
 interface buttonProps {
   title: string;
-  href: string;
+  href?: string;
   target?: string;
   className?: string;
   type?: "primary" | "secondary";
   size?: "sm";
+  onClick?: () => void;
   children: React.ReactNode;
 }
 
@@ -24,8 +25,9 @@ export default function Button(props: buttonProps) {
     <Link
       title={props.title}
       target={props.target}
-      href={props.href}
+      href={props.href || ""}
       className={removeExtraSpaces(className)}
+      onClick={props.onClick}
     >
       {props.children}
     </Link>
